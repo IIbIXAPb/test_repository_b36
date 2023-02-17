@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace test_repository_b36_nikitin_ps
 {
-    internal class Test_4_2_stikers
+    internal class Test_7_stikers
     {
 
         private IWebDriver driver;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj": {}
+    "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
         "projectName": "test_repository_b36_nikitin_ps",
-        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\obj\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XS++cp6ZVBXjWNjTVMwl3VsmTpOysacAGiVQQ/MZP5PpEHW/r64aXEwwFyTE9azo/I2h05dn6VxkQ1ltYkx99A==",
+  "dgSpecHash": "120KSib8QLkA9oJDMwZ80b2rP6kkUUB5MobHpSodPvE8xEb2v3tubEURCeG1CirVEkGmem9zYInirnghunJQ9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36_C#\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
