@@ -3,7 +3,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 
-
 namespace test_repository_b36_nikitin_ps
 {
     internal class litecart_admin
