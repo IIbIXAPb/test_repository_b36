@@ -52,8 +52,11 @@ namespace test_repository_b36_nikitin_ps
             var sale_price_weight = Int32.Parse(sale_price.GetCssValue("font-weight"));
             var full_price_weight = Int32.Parse(full_price.GetCssValue("font-weight"));
 
+            var sale_price_size = Convert.ToDouble(sale_price.GetCssValue("font-size").Trim(new char[] { 'p', 'x' }).Replace(".", ","));
+            var full_price_size = Convert.ToDouble(full_price.GetCssValue("font-size").Trim(new char[] { 'p', 'x' }).Replace(".", ","));
+
             // получение размера шрифта на увеличение
-            NUnit.Framework.Assert.That(sale_price.Size.Height, Is.GreaterThan(full_price.Size.Height));
+            NUnit.Framework.Assert.That(sale_price_size, Is.GreaterThan(full_price_size));
 
             // пауза интерфейса магазина
             Thread.Sleep(1000);
@@ -67,6 +70,9 @@ namespace test_repository_b36_nikitin_ps
             var full_price_p = driver.FindElement(By.XPath("//div[@class='information']/div/s"));
             var sale_price_p = driver.FindElement(By.XPath("//div[@class='information']/div/strong"));
 
+            var sale_price_size_p = Convert.ToDouble(sale_price_p.GetCssValue("font-size").Trim(new char[] { 'p', 'x' }).Replace(".", ","));
+            var full_price_size_p = Convert.ToDouble(full_price_p.GetCssValue("font-size").Trim(new char[] { 'p', 'x' }).Replace(".", ","));
+
             // заполнение данных товара - название, цена до, цена после акции
             productPage.Add("name", driver.FindElement(By.XPath("//h1")).GetAttribute("textContent"));
             productPage.Add("full_price", full_price_p.GetAttribute("textContent"));
@@ -75,12 +81,13 @@ namespace test_repository_b36_nikitin_ps
             // заполнение данных товара - цвет, выделение цветом
             var full_price_color_p = RGB_Number(full_price_p.GetCssValue("color"));
             var sale_price_color_p = RGB_Number(sale_price_p.GetCssValue("color"));
+
             var full_price_dec_p = full_price_p.GetCssValue("text-decoration");
             var sale_price_weight_p = Int32.Parse(sale_price_p.GetCssValue("font-weight"));
             var full_price_weight_p = Int32.Parse(full_price_p.GetCssValue("font-weight"));
 
             // получение размера шрифта на увеличение
-            NUnit.Framework.Assert.That(sale_price_p.Size.Height, Is.GreaterThan(full_price_p.Size.Height));
+            NUnit.Framework.Assert.That(sale_price_size_p, Is.GreaterThan(full_price_size_p));
 
             // проверка атрибутов товара с галвной страницы и страницы товара
             NUnit.Framework.Assert.That(mainPage["name"] == productPage["name"]);
