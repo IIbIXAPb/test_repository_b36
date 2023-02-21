@@ -2,102 +2,113 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using Assert = NUnit.Framework.Assert;
 
 namespace test_repository_b36_nikitin_ps
 {
     internal class Test_12_add_new_products
     {
+        private IWebDriver driver;
+        private WebDriverWait wait;
 
-        internal class Litecart_check_page
+        [SetUp]
+        public void start()
         {
-            private IWebDriver driver;
-            private WebDriverWait wait;
+            // объявление драйвера браузера
+            driver = new ChromeDriver();
+        }
+        [Test]
+        public void Litecart_Products_New_Product()
+        {
+            // переход на стартовую страницу
+            driver.Url = "http://localhost/litecart/admin/";
 
-            [SetUp]
-            public void start()
-            {
-                driver = new ChromeDriver();
-            }
+            //  авторизация на форме админки
+            driver.FindElement(By.Name("username")).SendKeys("admin");
+            driver.FindElement(By.Name("password")).SendKeys("admin");
+            driver.FindElement(By.Name("login")).Click();
 
-            [Test]
-            public void LitecartRegistration()
-            {
+            // пауза интерфейса магазина
+            Thread.Sleep(2000);
 
-                Random rnd = new Random();
-                int value = rnd.Next(1000, 9999);
-                driver.Url = "http://localhost/litecart/en/create_account";
-                Thread.Sleep(1000);
+            // переход: новая позиция магазина
+            driver.FindElement(By.XPath("//ul[@id='box-apps-menu']/li[2]/a")).Click();
+            driver.FindElement(By.XPath("//td[@id='content']/div[1]/a[2]")).Click();
 
-                var inputName = driver.FindElement(By.XPath("//input[@name='firstname']"));
-                var inputLastName = driver.FindElement(By.XPath("//input[@name='lastname']"));
-                var inputAddress1 = driver.FindElement(By.XPath("//input[@name='address1']"));
-                var inputPostcode = driver.FindElement(By.XPath("//input[@name='postcode']"));
-                var inputEmail = driver.FindElement(By.XPath("//input[@name='email']"));
-                var inputPhone = driver.FindElement(By.XPath("//input[@name='phone']"));
-                var inputPassword = driver.FindElement(By.XPath("//input[@name='password']"));
-                var inputCity = driver.FindElement(By.XPath("//input[@name='city']"));
-                var confirmPassword = driver.FindElement(By.XPath("//input[@name='confirmed_password']"));
-                var country = driver.FindElement(By.XPath("//select[@name='country_code']"));
-                var state = driver.FindElement(By.XPath("//select[@name='zone_code']"));
-                var submit = driver.FindElement(By.XPath("//button[@type='submit']"));
+            // заполнение: основная информация
+            // будем на каждого товара добавлять случайное число
+            int value = new Random().Next(1000, 9999);
+            string prod_name = "name " + value;
+            string prod_code = "code " + value;
+            string prod_quantity = value.ToString();
 
-                string name = "Firstname";
-                string lastName = "Lastname";
-                string address = "Home address 5";
-                string postcode = "08724";
-                string city = "Test";
-                string email = "user" + value + "@mail.me";
-                string phone = "+19877" + value;
-                string password = "test";
+            string imgPath = Path.GetFullPath("1-queen-duck.png");
 
-                // Заполняем поля
-                inputName.SendKeys(name);
-                inputLastName.SendKeys(lastName);
-                inputAddress1.SendKeys(address);
-                inputPostcode.SendKeys(postcode);
-                inputCity.SendKeys(city);
-                inputEmail.SendKeys(email);
-                inputPhone.SendKeys(phone);
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[1]/td/label[1]/input")).Click();
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[2]/td/span/input")).SendKeys(prod_name);
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[3]/td/input")).SendKeys(prod_code);
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[4]/td/div/table/tbody/tr[2]/td[1]/input")).Click();
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[4]/td/div/table/tbody/tr[1]/td[1]/input")).Click();
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[8]//input")).SendKeys(prod_quantity);
 
-                SelectElement countrySelect = new SelectElement(country);
-                countrySelect.SelectByText("United States");
-                Thread.Sleep(3000);
-                SelectElement stateSelect = new SelectElement(state);
-                stateSelect.SelectByText("South Dakota");
-                inputPassword.SendKeys(password);
-                confirmPassword.SendKeys(password);
+            SelectElement statusSelect = new SelectElement(driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[8]//select[@name='sold_out_status_id']")));
+            statusSelect.SelectByValue("2");
 
-                submit.Click();
-                Thread.Sleep(3000);
+            // Date Valid From
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[10]//input")).SendKeys("01012023");
+            // Date Valid To
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[11]//input")).SendKeys("31122023");
+            // Upload Images
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[9]//input")).SendKeys(imgPath);
+            driver.FindElement(By.XPath("//div[@id='tab-general']/table/tbody/tr[9]//a")).Click();
 
-                Assert.AreNotEqual(driver.Url, "http://localhost/litecart/en/create_account");
+            // заполнение: Information
+            driver.FindElement(By.XPath("//ul[@class='index']/li[2]/a")).Click();
+            Thread.Sleep(2000);
 
-                // выходим из учетки
-                var logout = driver.FindElement(By.XPath("//div[@id='box-account']/div/ul/li[4]/a"));
-                logout.Click();
-                Thread.Sleep(3000);
+            // выбор поставщика
+            SelectElement manufacturer = new SelectElement(driver.FindElement(By.XPath("//select[@name='manufacturer_id']")));
+            manufacturer.SelectByValue("1");
 
-                // заходим в учетку
-                driver.FindElement(By.XPath("//input[@name='email']")).SendKeys(email);
-                driver.FindElement(By.XPath("//input[@name='password']")).SendKeys(password);
-                driver.FindElement(By.XPath("//button[@name='login']")).Click();
-                Thread.Sleep(3000);
+            string prod_info_name = "duck " + value;
+            string prod_info_description = "description " + value;
 
-                // выходим из учетки
-                logout = driver.FindElement(By.XPath("//div[@id='box-account']/div/ul/li[4]/a"));
-                logout.Click();
-                Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//input[@name='keywords']")).SendKeys(prod_info_name);
+            driver.FindElement(By.XPath("//input[@name='short_description[en]']")).SendKeys(prod_info_description);
+            driver.FindElement(By.XPath("//div[@class='trumbowyg-editor']")).SendKeys("test");
+            driver.FindElement(By.XPath("//input[@name='head_title[en]']")).SendKeys("test");
+            driver.FindElement(By.XPath("//input[@name='meta_description[en]']")).SendKeys("test");
+
+            // заполнение: Prices
+            driver.FindElement(By.XPath("//ul[@class='index']/li[4]/a")).Click();
+            Thread.Sleep(2000);
+
+            driver.FindElement(By.XPath("//input[@name='purchase_price']")).SendKeys(prod_quantity);
+            SelectElement price = new SelectElement(driver.FindElement(By.XPath("//select[@name='purchase_price_currency_code']")));
+            price.SelectByValue("USD");
 
 
-            }
+            driver.FindElement(By.XPath("//input[@name='prices[USD]']")).SendKeys(prod_quantity);
+            driver.FindElement(By.XPath("//input[@name='prices[EUR]']")).SendKeys(prod_quantity);
 
-            [TearDown]
-            public void stop()
-            {
-                driver.Quit();
-                driver = null;
-            }
+            Thread.Sleep(2000);
+
+            // сохранение нового товара
+            driver.FindElement(By.XPath("//button[@name='save']")).Click();
+            Thread.Sleep(1000);
+
+            Console.WriteLine("Создание новой позиции:");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Название: " + prod_info_name);
+            Console.WriteLine("Описание: " + prod_info_description);
+            Console.WriteLine("Цена: " + prod_quantity);
+            Console.WriteLine("Код : " + prod_code);
+        }
+
+        [TearDown]
+        public void stop()
+        {
+            driver.Quit();
+            driver = null;
         }
 
     }
