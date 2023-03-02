@@ -220,3 +220,4 @@ C:\Users\user\Documents\GitHub\test_repository_b36\test_repository_b36_nikitin_p
 C:\Users\user\Documents\GitHub\test_repository_b36\test_repository_b36_nikitin_ps\test_repository_b36_nikitin_ps\obj\Debug\net6.0\test_repository_b36_nikitin_ps.pdb
 C:\Users\user\Documents\GitHub\test_repository_b36\test_repository_b36_nikitin_ps\test_repository_b36_nikitin_ps\obj\Debug\net6.0\test_repository_b36_nikitin_ps.genruntimeconfig.cache
 C:\Users\user\Documents\GitHub\test_repository_b36\test_repository_b36_nikitin_ps\test_repository_b36_nikitin_ps\obj\Debug\net6.0\ref\test_repository_b36_nikitin_ps.dll
+C:\Users\user\Documents\GitHub\test_repository_b36\test_repository_b36_nikitin_ps\test_repository_b36_nikitin_ps\bin\Debug\net6.0\SeleniumExtras.WaitHelpers.dll

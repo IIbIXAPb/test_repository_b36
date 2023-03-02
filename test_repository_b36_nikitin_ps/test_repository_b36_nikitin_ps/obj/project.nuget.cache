@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "120KSib8QLkA9oJDMwZ80b2rP6kkUUB5MobHpSodPvE8xEb2v3tubEURCeG1CirVEkGmem9zYInirnghunJQ9Q==",
+  "dgSpecHash": "Xvm2HLqRvGpEByzpSGPg/C8pARydFC3jzJNhIls1tXu29/YMuWK5J6zB1EbkdkL24opSChozo9RIGc8ZyN1fkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\test_repository_b36\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps\\test_repository_b36_nikitin_ps.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.net.test.sdk\\17.3.2\\microsoft.net.test.sdk.17.3.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

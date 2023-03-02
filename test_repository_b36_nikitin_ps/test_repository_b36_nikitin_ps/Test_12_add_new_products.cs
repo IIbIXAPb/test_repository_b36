@@ -15,6 +15,7 @@ namespace test_repository_b36_nikitin_ps
         {
             // объявление драйвера браузера
             driver = new ChromeDriver();
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
         [Test]
         public void Litecart_Products_New_Product()

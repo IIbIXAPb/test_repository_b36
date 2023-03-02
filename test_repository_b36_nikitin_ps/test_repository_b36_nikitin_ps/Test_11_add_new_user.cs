@@ -85,20 +85,20 @@ namespace test_repository_b36_nikitin_ps
 
             // подтверждение ввода
             user_Submit.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             NUnit.Framework.Assert.AreNotEqual(driver.Url, "http://localhost/litecart/en/create_account");
 
             // выходим из учетной записи пользователя
             var logout = driver.FindElement(By.XPath("//div[@id='box-account']/div/ul/li[4]/a"));
             logout.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             // авторизация под новым пользователем
             driver.FindElement(By.XPath("//input[@name='email']")).SendKeys(txt_email);
             driver.FindElement(By.XPath("//input[@name='password']")).SendKeys(txt_password);
             driver.FindElement(By.XPath("//button[@name='login']")).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             // выходим из учетной записи пользователя
             logout = driver.FindElement(By.XPath("//div[@id='box-account']/div/ul/li[4]/a"));
