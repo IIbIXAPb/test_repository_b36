@@ -2,11 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Firefox;
 
 namespace test_repository_b36_nikitin_ps
 {
@@ -20,7 +16,8 @@ namespace test_repository_b36_nikitin_ps
         public void start()
         {
             // объявление драйвера браузера
-            driver = new ChromeDriver();
+            driver = new FirefoxDriver("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+            //driver = new ChromeDriver();
         }
         [Test]
         public void Litecart_Registration_New_User()
@@ -32,7 +29,7 @@ namespace test_repository_b36_nikitin_ps
             // переход на страницу создания нового пользователя
             driver.Url = "http://localhost/litecart/en/create_account";
             // ожидание открытия
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
             // установка параметров ввода необходимых полей
             var user_Name = driver.FindElement(By.XPath("//input[@name='firstname']"));
@@ -60,19 +57,27 @@ namespace test_repository_b36_nikitin_ps
 
             // заполняем поля пользовательскими данными - поля ввода
             user_Name.SendKeys(txt_name);
+            Thread.Sleep(1000);
             user_LastName.SendKeys(txt_lastName);
+            Thread.Sleep(1000);
             user_Address.SendKeys(txt_address);
+            Thread.Sleep(1000);
             user_Postcode.SendKeys(txt_postcode);
+            Thread.Sleep(1000);
             user_City.SendKeys(txt_city);
+            Thread.Sleep(1000);
             user_Email.SendKeys(txt_email);
+            Thread.Sleep(1000);
             user_Phone.SendKeys(txt_phone);
+            Thread.Sleep(1000);
 
             // заполняем поля пользовательскими данными - поля выбора страны, области
-            SelectElement countrySelect = new SelectElement(user_Country);
-            countrySelect.SelectByText("United States");
-            Thread.Sleep(3000);
-            SelectElement stateSelect = new SelectElement(user_State);
-            stateSelect.SelectByText("South Dakota");
+            //SelectElement countrySelect = new SelectElement(user_Country);
+            user_Country.SendKeys("United States");
+            Thread.Sleep(1000);
+            //SelectElement stateSelect = new SelectElement(user_State);
+            user_State.SendKeys("South Dakota");
+            Thread.Sleep(1000);
 
             // заполняем поля пользовательскими данными - авторизация пользователя
             user_Password.SendKeys(txt_password);
